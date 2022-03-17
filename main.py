@@ -51,4 +51,14 @@ with open("charts.csv", encoding="utf8") as f:
     print(f"lowest amount if occ -> {min_key} -> {min_value}\n")
     print(f"highest amount if occ -> {max_key} -> {max_value}\n")
 
+    csvreader = csv.reader(f)
+    tmp_dictionary_name = dict()
+    for row in csvreader:
+        if row[3] == "System Of A Down":
+            if row[2] in tmp_dictionary_name:
+                if row[1]<tmp_dictionary_name[row[2]]:
+                    tmp_dictionary_name[row[2]] = row[1]
+            else:
+                tmp_dictionary_name[row[2]] = row[1]
+
 
